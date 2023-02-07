@@ -1,7 +1,42 @@
 
 
+
+import requests
 import os
 import re
+
+from bs4 import BeautifulSoup
+from lxml import etree
+
+
+def writeinto_txtfile(filename, data):
+    with open(filename, "a", newline="", encoding="utf-8") as f:
+        f.write(data)
+        f.write("\n")
+        f.close()
+
+
+
+def output_text(trans_filename,url):
+    ret_list = []
+
+    resp = requests.get(url)
+    element = etree.HTML(resp.text)
+
+    xpath1 = element.xpath('/html/body/main/article/div/div/div[2]/div/div/section[2]/ul/li/a/text()')
+    xpath2 = element.xpath('/html/body/main/article/div/div/div[2]/div/div/section[2]/ul/li/ul/li/a/text()')
+    for item in xpath1:
+        ret_list.append(item)
+    for item in xpath2:
+        ret_list.append(item)
+
+    for item in ret_list:
+        writeinto_txtfile(trans_filename, item)
+
+
+
+
+
 
 
 
@@ -19,10 +54,12 @@ class Output_Golang_FITM():
 
     def exec(self):
         self.dt_standby(datafile)
-        self.output_IT() # ok
-        self.output_indepent_func() # ok
-
         self.output_method()
+        self.output_indepent_func() # ok
+        self.output_IT() # ok
+
+
+
 
     def dt_standby(self,datafile):
         ret = self.readDatafile(datafile)
@@ -41,15 +78,15 @@ class Output_Golang_FITM():
 
 
     def output_indepent_func(self):
-        print('<li><a href="/">' + '&#129697;&#129697;&#129697; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697;  &nbsp;&nbsp;func:', len(independent_func_list),
-              '&nbsp;&nbsp; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697; ' + '</a></li> <br>')
+        print('<li><a href="/">' + '&#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145;  &nbsp;&nbsp;func:', len(independent_func_list),
+              '&nbsp;&nbsp; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145; ' + '</a></li> <br>')
         for item in independent_func_list:
             ret = self.get_corre_item_func(item, type_list)
             print('<li><a href="/">&nbsp;&nbsp;' + self.bold_text_indepent(ret) + "&nbsp;&nbsp;</a></li> <br>")
             print("\n")
 
     def output_IT(self):
-        print('<li><a href="/">' +'&#129697;&#129697;&#129697; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697;&nbsp;&nbsp;  type nums:', len(type_list), '&nbsp;&nbsp;&#129697;&#129697;&#129697; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697; '+ '</a></li> <br>')
+        print('<li><a href="/">' +'&#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145;&nbsp;&nbsp;  type nums:', len(type_list), '&nbsp;&nbsp;&#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145; '+ '</a></li> <br>')
         for item in type_list:
             print('<li><a href="/">' + item  + "</a></li> <br>")
 
@@ -162,14 +199,17 @@ class Output_Golang_FITM():
 
 
 if __name__ =="__main__":
+    url = "https://pkg.go.dev/github.com/fsouza/go-dockerclient"
+    src_file = "trans_file"
+    if os.path.exists(src_file):
+        os.remove(src_file)
+    output_text(src_file,url)
     independent_func_list = []
     type_list = []
     method_list = []
-    datafile = "index.html"
+    datafile = src_file
 
     abc = Output_Golang_FITM()
     abc.exec()
-
-
 
 
