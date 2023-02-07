@@ -1,0 +1,243 @@
+
+
+
+
+
+<html>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="Description" content="Package resty provides Simple HTTP and REST client library for Go.">
+      
+      <meta class="js-gtmID" data-gtmid="GTM-W8MVQXG">
+      <link rel="shortcut icon" href="https://pkg.go.dev/static/shared/icon/favicon.ico">
+      
+    
+      <link rel="canonical" href="https://pkg.go.dev/github.com/go-resty/resty/v2">
+    
+  
+      <link href="https://pkg.go.dev/static/frontend/frontend.min.css?version=prod-frontend-00067-zok" rel="stylesheet">
+      
+    <title>resty package - github.com/go-resty/resty/v2 - Go Packages</title>
+  
+      
+    <link href="https://pkg.go.dev/static/frontend/unit/unit.min.css?version=prod-frontend-00067-zok" rel="stylesheet">
+    
+    <link href="https://pkg.go.dev/static/frontend/unit/main/main.min.css?version=prod-frontend-00067-zok" rel="stylesheet">
+  
+  
+    </head>
+
+<body>
+<div>
+
+        <div>
+
+                <section class="Documentation-index">
+                        <h3 id="pkg-index" class="Documentation-indexHeader">Index <a href="#pkg-index">¶</a></h3>
+                    
+                    <ul class="Documentation-indexList">
+
+
+
+
+                        <li><a href="/">&#129697;&#129697;&#129697; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697;&nbsp;&nbsp;  type nums: 17 &nbsp;&nbsp;&#129697;&#129697;&#129697; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697; </a></li> <br>
+                        <li><a href="/">Collector</a></li> <br>
+                        <li><a href="/">CollectorOption</a></li> <br>
+                        <li><a href="/">Context</a></li> <br>
+                        <li><a href="/">ErrorCallback</a></li> <br>
+                        <li><a href="/">HTMLCallback</a></li> <br>
+                        <li><a href="/">HTMLElement</a></li> <br>
+                        <li><a href="/">HTTPTrace</a></li> <br>
+                        <li><a href="/">LimitRule</a></li> <br>
+                        <li><a href="/">ProxyFunc</a></li> <br>
+                        <li><a href="/">Request</a></li> <br>
+                        <li><a href="/">RequestCallback</a></li> <br>
+                        <li><a href="/">Response</a></li> <br>
+                        <li><a href="/">ResponseCallback</a></li> <br>
+                        <li><a href="/">ResponseHeadersCallback</a></li> <br>
+                        <li><a href="/">ScrapedCallback</a></li> <br>
+                        <li><a href="/">XMLCallback</a></li> <br>
+                        <li><a href="/">XMLElement</a></li> <br>
+                        <li><a href="/">&#129697;&#129697;&#129697; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697;  &nbsp;&nbsp;func: 24 &nbsp;&nbsp; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697; &#129697;&#129697;&#129697; </a></li> <br>
+                        <li><a href="/">&nbsp;&nbsp;func <strong>SanitizeFileName</strong>(fileName string) string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; &nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>UnmarshalHTML</strong>(v interface{}, s *goquery.Selection, structMap map[string]string) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; &nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>NewCollector</strong>(options ...CollectorOption) *Collector &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>AllowURLRevisit</strong>() CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>AllowedDomains</strong>(domains ...string) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>Async</strong>(a ...bool) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>CacheDir</strong>(path string) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>CheckHead</strong>() CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>Debugger</strong>(d debug.<strong>Debugger</strong>) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>DetectCharset</strong>() CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>DisallowedDomains</strong>(domains ...string) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>DisallowedURLFilters</strong>(filters ...*regexp.Regexp) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>ID</strong>(id uint32) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>IgnoreRobotsTxt</strong>() CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>MaxBodySize</strong>(sizeInBytes int) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>MaxDepth</strong>(depth int) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>ParseHTTPErrorResponse</strong>() CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption', 'Response'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>TraceHTTP</strong>() CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>URLFilters</strong>(filters ...*regexp.Regexp) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>UserAgent</strong>(ua string) CollectorOption &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Collector', 'CollectorOption'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>NewContext</strong>() *Context &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Context'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>NewHTMLElementFromSelectionNode</strong>(resp *Response, s *goquery.Selection, n *html.Node, idx int) *HTMLElement &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'HTMLElement', 'Response'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>NewXMLElementFromHTMLNode</strong>(resp *Response, s *html.Node) *XMLElement &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Response', 'XMLElement'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&nbsp;&nbsp;func <strong>NewXMLElementFromXMLNode</strong>(resp *Response, s *xmlquery.Node) *XMLElement &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; <strong>'Response', 'XMLElement'</strong>&nbsp;&nbsp;</a></li> <br>
+                        
+                        
+                        <li><a href="/">&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 &nbsp;&nbsp; Collector : Nums 37&nbsp;&nbsp; &#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 </a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Appengine</strong>(ctx context.Context) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'Context'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Clone</strong>() *Collector &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Cookies</strong>(URL string) []*http.Cookie &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> DisableCookies</strong>() &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> HasPosted</strong>(URL string, requestData map[string]string) (bool, error) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> HasVisited</strong>(URL string) (bool, error) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Head</strong>(URL string) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Init</strong>() &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Limit</strong>(rule *LimitRule) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'LimitRule'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Limits</strong>(rules []*LimitRule) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'LimitRule'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> OnError</strong>(f ErrorCallback) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'ErrorCallback'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> OnHTML</strong>(goquerySelector string, f HTMLCallback) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'HTMLCallback'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> OnHTMLDetach</strong>(goquerySelector string) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> OnRequest</strong>(f RequestCallback) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'Request', 'RequestCallback'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> OnResponse</strong>(f ResponseCallback) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'Response', 'ResponseCallback'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> OnResponseHeaders</strong>(f ResponseHeadersCallback) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'Response', 'ResponseHeadersCallback'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> OnScraped</strong>(f ScrapedCallback) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'ScrapedCallback'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> OnXML</strong>(xpathQuery string, f XMLCallback) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'XMLCallback'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> OnXMLDetach</strong>(xpathQuery string) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Post</strong>(URL string, requestData map[string]string) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> PostMultipart</strong>(URL string, requestData map[string][]byte) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> PostRaw</strong>(URL string, requestData []byte) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Request</strong>(method, URL string, requestData io.Reader, ctx *Context, hdr http.Header) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'Context', 'Request'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> SetClient</strong>(client *http.Client) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> SetCookieJar</strong>(j http.CookieJar) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> SetCookies</strong>(URL string, cookies []*http.Cookie) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> SetDebugger</strong>(d debug.Debugger) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> SetProxy</strong>(proxyURL string) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> SetProxyFunc</strong>(p ProxyFunc) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'ProxyFunc'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> SetRedirectHandler</strong>(f func(req *http.Request, via []*http.Request) error) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'Request'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> SetRequestTimeout</strong>(timeout time.Duration) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'Request'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> SetStorage</strong>(s storage.Storage) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> String</strong>() string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> UnmarshalRequest</strong>(r []byte) (*Request, error) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector', 'Request'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Visit</strong>(URL string) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> Wait</strong>() &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">func (c *Collector)<strong> WithTransport</strong>(transport http.RoundTripper) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Collector'</a></li> <br>
+                        <li><a href="/">&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 &nbsp;&nbsp; Context : Nums 6&nbsp;&nbsp; &#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 </a></li> <br>
+                        <li><a href="/">func (c *Context)<strong> ForEach</strong>(fn func(k string, v interface{}) interface{}) []interface{} &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Context'</a></li> <br>
+                        <li><a href="/">func (c *Context)<strong> Get</strong>(key string) string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Context'</a></li> <br>
+                        <li><a href="/">func (c *Context)<strong> GetAny</strong>(key string) interface{} &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Context'</a></li> <br>
+                        <li><a href="/">func (c *Context)<strong> MarshalBinary</strong>() (_ []byte, _ error) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Context'</a></li> <br>
+                        <li><a href="/">func (c *Context)<strong> Put</strong>(key string, value interface{}) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Context'</a></li> <br>
+                        <li><a href="/">func (c *Context)<strong> UnmarshalBinary</strong>(_ []byte) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Context'</a></li> <br>
+                        <li><a href="/">&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 &nbsp;&nbsp; HTMLElement : Nums 9&nbsp;&nbsp; &#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 </a></li> <br>
+                        <li><a href="/">func (h *HTMLElement)<strong> Attr</strong>(k string) string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTMLElement'</a></li> <br>
+                        <li><a href="/">func (h *HTMLElement)<strong> ChildAttr</strong>(goquerySelector, attrName string) string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTMLElement'</a></li> <br>
+                        <li><a href="/">func (h *HTMLElement)<strong> ChildAttrs</strong>(goquerySelector, attrName string) []string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTMLElement'</a></li> <br>
+                        <li><a href="/">func (h *HTMLElement)<strong> ChildText</strong>(goquerySelector string) string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTMLElement'</a></li> <br>
+                        <li><a href="/">func (h *HTMLElement)<strong> ChildTexts</strong>(goquerySelector string) []string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTMLElement'</a></li> <br>
+                        <li><a href="/">func (h *HTMLElement)<strong> ForEach</strong>(goquerySelector string, callback func(int, *HTMLElement)) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTMLElement'</a></li> <br>
+                        <li><a href="/">func (h *HTMLElement)<strong> ForEachWithBreak</strong>(goquerySelector string, callback func(int, *HTMLElement) bool) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTMLElement'</a></li> <br>
+                        <li><a href="/">func (h *HTMLElement)<strong> Unmarshal</strong>(v interface{}) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTMLElement'</a></li> <br>
+                        <li><a href="/">func (h *HTMLElement)<strong> UnmarshalWithMap</strong>(v interface{}, structMap map[string]string) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTMLElement'</a></li> <br>
+                        <li><a href="/">&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 &nbsp;&nbsp; HTTPTrace : Nums 1&nbsp;&nbsp; &#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 </a></li> <br>
+                        <li><a href="/">func (ht *HTTPTrace)<strong> WithTrace</strong>(req *http.Request) *http.Request &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'HTTPTrace', 'Request'</a></li> <br>
+                        <li><a href="/">&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 &nbsp;&nbsp; LimitRule : Nums 2&nbsp;&nbsp; &#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 </a></li> <br>
+                        <li><a href="/">func (r *LimitRule)<strong> Init</strong>() error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'LimitRule'</a></li> <br>
+                        <li><a href="/">func (r *LimitRule)<strong> Match</strong>(domain string) bool &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'LimitRule'</a></li> <br>
+                        <li><a href="/">&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 &nbsp;&nbsp; Request : Nums 11&nbsp;&nbsp; &#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 </a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> Abort</strong>() &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> AbsoluteURL</strong>(u string) string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> Do</strong>() error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> HasVisited</strong>(URL string) (bool, error) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> Marshal</strong>() ([]byte, error) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> New</strong>(method, URL string, body io.Reader) (*Request, error) &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> Post</strong>(URL string, requestData map[string]string) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> PostMultipart</strong>(URL string, requestData map[string][]byte) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> PostRaw</strong>(URL string, requestData []byte) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> Retry</strong>() error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">func (r *Request)<strong> Visit</strong>(URL string) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Request'</a></li> <br>
+                        <li><a href="/">&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 &nbsp;&nbsp; Response : Nums 2&nbsp;&nbsp; &#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 </a></li> <br>
+                        <li><a href="/">func (r *Response)<strong> FileName</strong>() string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Response'</a></li> <br>
+                        <li><a href="/">func (r *Response)<strong> Save</strong>(fileName string) error &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'Response'</a></li> <br>
+                        <li><a href="/">&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 &nbsp;&nbsp; XMLElement : Nums 5&nbsp;&nbsp; &#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 </a></li> <br>
+                        <li><a href="/">func (h *XMLElement)<strong> Attr</strong>(k string) string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'XMLElement'</a></li> <br>
+                        <li><a href="/">func (h *XMLElement)<strong> ChildAttr</strong>(xpathQuery, attrName string) string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'XMLElement'</a></li> <br>
+                        <li><a href="/">func (h *XMLElement)<strong> ChildAttrs</strong>(xpathQuery, attrName string) []string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'XMLElement'</a></li> <br>
+                        <li><a href="/">func (h *XMLElement)<strong> ChildText</strong>(xpathQuery string) string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'XMLElement'</a></li> <br>
+                        <li><a href="/">func (h *XMLElement)<strong> ChildTexts</strong>(xpathQuery string) []string &nbsp;&nbsp;   &#129320; |  &#10145 &nbsp;&nbsp; 'XMLElement'</a></li> <br>
+
+
+
+                              
+
+                    </ul>
+
+
+
+
+
+
+
+
+
+                    
+
+                    </section>
+        </div>
+</div>
+
+
+
+
+</body>
+
+
+    </html>
