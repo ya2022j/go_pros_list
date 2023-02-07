@@ -1,0 +1,56 @@
+
+{% extends 'hp_template_for_pag.html' %}
+
+
+{% block body %}
+
+
+    <link rel="stylesheet" href="../static/bootstrap.min.css" />
+
+
+
+<div class="table-responsive">
+  <table class="table table-hover table-borderless table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Info</th>
+        <th scope="col">GithubURL</th>
+        <th scope="col">Weight&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+        <th scope="col">Stars</th>
+      </tr>
+    </thead>
+    <tbody>
+           {% for row in rows %}
+      <tr style="font-size: 15px">
+
+      <tr>
+
+         <td><a href="{{ row.contents_url  }}">{{ row.new_infos  }}</a></td>
+         <td><a href="{{ row.infos }}">{{ row.infos  }}</a></td>
+         <td><a href="{{ row.contents_url  }}">{{ row.weight  }}</a></td>
+         <td>{{ row.stars_num  }}</td>
+
+
+
+      </tr>
+    {% endfor %}
+
+
+
+
+    </tbody>
+
+  </table>
+</div>
+
+
+
+
+{{ pagination.links }}
+{{ pagination.info }}
+
+
+
+
+{% endblock %}
+
