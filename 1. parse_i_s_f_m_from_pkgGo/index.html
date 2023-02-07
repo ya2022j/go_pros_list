@@ -1,0 +1,114 @@
+func SanitizeFileName(fileName string) string
+func UnmarshalHTML(v interface{}, s *goquery.Selection, structMap map[string]string) error
+type Collector
+func NewCollector(options ...CollectorOption) *Collector
+func (c *Collector) Appengine(ctx context.Context)
+func (c *Collector) Clone() *Collector
+func (c *Collector) Cookies(URL string) []*http.Cookie
+func (c *Collector) DisableCookies()
+func (c *Collector) HasPosted(URL string, requestData map[string]string) (bool, error)
+func (c *Collector) HasVisited(URL string) (bool, error)
+func (c *Collector) Head(URL string) error
+func (c *Collector) Init()
+func (c *Collector) Limit(rule *LimitRule) error
+func (c *Collector) Limits(rules []*LimitRule) error
+func (c *Collector) OnError(f ErrorCallback)
+func (c *Collector) OnHTML(goquerySelector string, f HTMLCallback)
+func (c *Collector) OnHTMLDetach(goquerySelector string)
+func (c *Collector) OnRequest(f RequestCallback)
+func (c *Collector) OnResponse(f ResponseCallback)
+func (c *Collector) OnResponseHeaders(f ResponseHeadersCallback)
+func (c *Collector) OnScraped(f ScrapedCallback)
+func (c *Collector) OnXML(xpathQuery string, f XMLCallback)
+func (c *Collector) OnXMLDetach(xpathQuery string)
+func (c *Collector) Post(URL string, requestData map[string]string) error
+func (c *Collector) PostMultipart(URL string, requestData map[string][]byte) error
+func (c *Collector) PostRaw(URL string, requestData []byte) error
+func (c *Collector) Request(method, URL string, requestData io.Reader, ctx *Context, hdr http.Header) error
+func (c *Collector) SetClient(client *http.Client)
+func (c *Collector) SetCookieJar(j http.CookieJar)
+func (c *Collector) SetCookies(URL string, cookies []*http.Cookie) error
+func (c *Collector) SetDebugger(d debug.Debugger)
+func (c *Collector) SetProxy(proxyURL string) error
+func (c *Collector) SetProxyFunc(p ProxyFunc)
+func (c *Collector) SetRedirectHandler(f func(req *http.Request, via []*http.Request) error)
+func (c *Collector) SetRequestTimeout(timeout time.Duration)
+func (c *Collector) SetStorage(s storage.Storage) error
+func (c *Collector) String() string
+func (c *Collector) UnmarshalRequest(r []byte) (*Request, error)
+func (c *Collector) Visit(URL string) error
+func (c *Collector) Wait()
+func (c *Collector) WithTransport(transport http.RoundTripper)
+type CollectorOption
+func AllowURLRevisit() CollectorOption
+func AllowedDomains(domains ...string) CollectorOption
+func Async(a ...bool) CollectorOption
+func CacheDir(path string) CollectorOption
+func CheckHead() CollectorOption
+func Debugger(d debug.Debugger) CollectorOption
+func DetectCharset() CollectorOption
+func DisallowedDomains(domains ...string) CollectorOption
+func DisallowedURLFilters(filters ...*regexp.Regexp) CollectorOption
+func ID(id uint32) CollectorOption
+func IgnoreRobotsTxt() CollectorOption
+func MaxBodySize(sizeInBytes int) CollectorOption
+func MaxDepth(depth int) CollectorOption
+func ParseHTTPErrorResponse() CollectorOption
+func TraceHTTP() CollectorOption
+func URLFilters(filters ...*regexp.Regexp) CollectorOption
+func UserAgent(ua string) CollectorOption
+type Context
+func NewContext() *Context
+func (c *Context) ForEach(fn func(k string, v interface{}) interface{}) []interface{}
+func (c *Context) Get(key string) string
+func (c *Context) GetAny(key string) interface{}
+func (c *Context) MarshalBinary() (_ []byte, _ error)
+func (c *Context) Put(key string, value interface{})
+func (c *Context) UnmarshalBinary(_ []byte) error
+type ErrorCallback
+type HTMLCallback
+type HTMLElement
+func NewHTMLElementFromSelectionNode(resp *Response, s *goquery.Selection, n *html.Node, idx int) *HTMLElement
+func (h *HTMLElement) Attr(k string) string
+func (h *HTMLElement) ChildAttr(goquerySelector, attrName string) string
+func (h *HTMLElement) ChildAttrs(goquerySelector, attrName string) []string
+func (h *HTMLElement) ChildText(goquerySelector string) string
+func (h *HTMLElement) ChildTexts(goquerySelector string) []string
+func (h *HTMLElement) ForEach(goquerySelector string, callback func(int, *HTMLElement))
+func (h *HTMLElement) ForEachWithBreak(goquerySelector string, callback func(int, *HTMLElement) bool)
+func (h *HTMLElement) Unmarshal(v interface{}) error
+func (h *HTMLElement) UnmarshalWithMap(v interface{}, structMap map[string]string) error
+type HTTPTrace
+func (ht *HTTPTrace) WithTrace(req *http.Request) *http.Request
+type LimitRule
+func (r *LimitRule) Init() error
+func (r *LimitRule) Match(domain string) bool
+type ProxyFunc
+type Request
+func (r *Request) Abort()
+func (r *Request) AbsoluteURL(u string) string
+func (r *Request) Do() error
+func (r *Request) HasVisited(URL string) (bool, error)
+func (r *Request) Marshal() ([]byte, error)
+func (r *Request) New(method, URL string, body io.Reader) (*Request, error)
+func (r *Request) Post(URL string, requestData map[string]string) error
+func (r *Request) PostMultipart(URL string, requestData map[string][]byte) error
+func (r *Request) PostRaw(URL string, requestData []byte) error
+func (r *Request) Retry() error
+func (r *Request) Visit(URL string) error
+type RequestCallback
+type Response
+func (r *Response) FileName() string
+func (r *Response) Save(fileName string) error
+type ResponseCallback
+type ResponseHeadersCallback
+type ScrapedCallback
+type XMLCallback
+type XMLElement
+func NewXMLElementFromHTMLNode(resp *Response, s *html.Node) *XMLElement
+func NewXMLElementFromXMLNode(resp *Response, s *xmlquery.Node) *XMLElement
+func (h *XMLElement) Attr(k string) string
+func (h *XMLElement) ChildAttr(xpathQuery, attrName string) string
+func (h *XMLElement) ChildAttrs(xpathQuery, attrName string) []string
+func (h *XMLElement) ChildText(xpathQuery string) string
+func (h *XMLElement) ChildTexts(xpathQuery string) []string
