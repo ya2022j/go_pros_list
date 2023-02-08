@@ -1,6 +1,5 @@
 
 
-
 import requests
 import os
 import re
@@ -21,17 +20,33 @@ def output_text(trans_filename,url):
     ret_list = []
 
     resp = requests.get(url)
-    element = etree.HTML(resp.text)
+    if "github.com" in url :
 
-    xpath1 = element.xpath('/html/body/main/article/div/div/div[2]/div/div/section[2]/ul/li/a/text()')
-    xpath2 = element.xpath('/html/body/main/article/div/div/div[2]/div/div/section[2]/ul/li/ul/li/a/text()')
-    for item in xpath1:
-        ret_list.append(item)
-    for item in xpath2:
-        ret_list.append(item)
+        element = etree.HTML(resp.text)
 
-    for item in ret_list:
-        writeinto_txtfile(trans_filename, item)
+        xpath1 = element.xpath('/html/body/main/article/div/div/div[2]/div/div/section[2]/ul/li/a/text()')
+        xpath2 = element.xpath('/html/body/main/article/div/div/div[2]/div/div/section[2]/ul/li/ul/li/a/text()')
+        for item in xpath1:
+            ret_list.append(item)
+        for item in xpath2:
+            ret_list.append(item)
+
+        for item in ret_list:
+            print(item)
+            writeinto_txtfile(trans_filename, item)
+    else:
+        element = etree.HTML(resp.text)
+
+        xpath1 = element.xpath('/html/body/main/article/div/div/div[1]/div[2]/div/section[2]/ul/li/a/text()')
+        xpath2 = element.xpath('/html/body/main/article/div/div/div[1]/div[2]/div/section[2]/ul/li/ul/li/a/text()')
+        for item in xpath1:
+            ret_list.append(item)
+        for item in xpath2:
+            ret_list.append(item)
+
+        for item in ret_list:
+            print(item)
+            writeinto_txtfile(trans_filename, item)
 
 
 
@@ -53,10 +68,15 @@ class Output_Golang_FITM():
 
 
     def exec(self):
+        writeinto_txtfile(htmlfile,header)
         self.dt_standby(datafile)
         self.output_method()
         self.output_indepent_func() # ok
         self.output_IT() # ok
+
+        writeinto_txtfile(htmlfile,footer)
+        if os.path.exists(src_file):
+            os.remove(src_file)
 
 
 
@@ -78,17 +98,20 @@ class Output_Golang_FITM():
 
 
     def output_indepent_func(self):
-        print('<li><a href="/">' + '&#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145;  &nbsp;&nbsp;func:', len(independent_func_list),
-              '&nbsp;&nbsp; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145; ' + '</a></li> <br>')
+        func_title  = '<li><a href="/">' + '&#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145;  &nbsp;&nbsp;func:'+str(len(independent_func_list))+'&nbsp;&nbsp; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145; ' + '</a></li> <br>'
+        writeinto_txtfile(htmlfile,func_title)
+
         for item in independent_func_list:
             ret = self.get_corre_item_func(item, type_list)
-            print('<li><a href="/">&nbsp;&nbsp;' + self.bold_text_indepent(ret) + "&nbsp;&nbsp;</a></li> <br>")
-            print("\n")
+            writeinto_txtfile(htmlfile,'<li><a href="/">&nbsp;&nbsp;' + self.bold_text_indepent(ret) + "&nbsp;&nbsp;</a></li> <br>")
+
+            writeinto_txtfile(htmlfile,"\n")
 
     def output_IT(self):
-        print('<li><a href="/">' +'&#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145;&nbsp;&nbsp;  type nums:', len(type_list), '&nbsp;&nbsp;&#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145; '+ '</a></li> <br>')
+        type_title = '<li><a href="/">' +'&#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145;&nbsp;&nbsp;  type nums:'+str(len(type_list))+'&nbsp;&nbsp;&#10145;&#10145;&#10145; &#10145;&#10145;&#10145; &#10145;&#10145;&#10145; '+ '</a></li> <br>'
+        writeinto_txtfile(htmlfile,type_title)
         for item in type_list:
-            print('<li><a href="/">' + item  + "</a></li> <br>")
+            writeinto_txtfile(htmlfile,'<li><a href="/">' + item  + "</a></li> <br>")
 
     def output_method(self):
         try:
@@ -106,11 +129,11 @@ class Output_Golang_FITM():
                     if len(one_type_methods[1:]) !=0:
 
                         if item in type_list:
-                            print(
+                            writeinto_txtfile(htmlfile,
                                 '<li><a href="/">' + '&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 &nbsp;&nbsp; {0} : Nums {1}&nbsp;&nbsp; &#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145&#10145 '.format(
                                     one_type_methods[0], len(one_type_methods[1:])) + '</a></li> <br>')
                         else:
-                            print(item)
+                            writeinto_txtfile(htmlfile,item)
         except Exception as e:
             raise e
 
@@ -197,12 +220,46 @@ class Output_Golang_FITM():
 
         return method_ret_list
 
+def get_htmlfile(url_info):
+    #  https://pkg.go.dev/crypto@go1.20
+    # https://pkg.go.dev/github.com/gin-gonic/gin
+    url_list = url_info.split("/")
+    if "github.com" in url_info:
+        ret_str = url_list[url_list.index("github.com" )+1]
+    else:
+        ret_str = url_list[url_list.index("pkg.go.dev" )+1]
+
+    return ret_str
+
+
+
+
+#
+
+
+
+
 
 if __name__ =="__main__":
-    url = "https://pkg.go.dev/github.com/fsouza/go-dockerclient"
+    pkg_hp_html = "pkg_go_hp"
+    url = "https://pkg.go.dev/github.com/gin-gonic/gin"
     src_file = "trans_file"
-    if os.path.exists(src_file):
-        os.remove(src_file)
+    htmlfile = get_htmlfile(url) + ".html"
+    htmlfilename = get_htmlfile(url)
+    header = ' <html> \n     \n  <meta charset="utf-8">     \n  <meta http-equiv="X-UA-Compatible" content="IE=edge">     \n  <meta name="viewport" content="width=device-width, initial-scale=1.0">     \n  <meta name="Description" content="Package resty provides Simple HTTP and REST client library for Go."> \n  <meta class="js-gtmID" data-gtmid="GTM-W8MVQXG"> ' + \
+             '    \n  <link href="../dytree/static/pkg_go.css" rel="stylesheet">   \n <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://svgsilh.com/svg/33581.svg"> ' + \
+             '   </head>\n <body>\n <div>      \n   <div>        \n         <section class="Documentation-index">                   \n      <h3 id="pkg-index" class="Documentation-indexHeader"> <a href="#pkg-index"></a></h3>' + \
+             '         \n<div>                    \n           <br> \n                    <br> ' + \
+             '   \n                     <a class="previous"  style="text-align: left;" href="/{0}.html">&nbsp&nbspBack</a>'.format(pkg_hp_html) + \
+             '    \n                   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + \
+             '     \n                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + \
+             '      \n               &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + \
+             '       \n             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + \
+             '        \n           &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + \
+             '        \n         <a class="next"   style="text-align: right;" href="/{1}">{0}</a></div><br>'.format(htmlfilename,htmlfile) + \
+             '\n <br>  \n                   <ul class="Documentation-indexList"> '
+    footer = "</ul> \n                     </section> \n         </div> \n </div> \n </body> \n    </html>"
+
     output_text(src_file,url)
     independent_func_list = []
     type_list = []
@@ -211,5 +268,7 @@ if __name__ =="__main__":
 
     abc = Output_Golang_FITM()
     abc.exec()
+
+
 
 
