@@ -12,7 +12,7 @@ git@github.com:mao888/GoWeb_ToDoList.git
 ### 配置MySQL
 1. 在你的数据库中执行以下命令，创建本项目所用的数据库：
 ```sql
-CREATE DATABASE bubble DEFAULT CHARSET=utf8mb4;
+CREATE DATABASE dytree_todolist DEFAULT CHARSET=utf8mb4;
 ```
 2. 在`bubble/conf/config.ini`文件中按如下提示配置数据库连接信息。
 
