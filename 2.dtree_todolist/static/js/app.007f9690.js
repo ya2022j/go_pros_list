@@ -149,7 +149,7 @@
           return n(
             "el-container",
             [
-              n("el-header", [e._v("DYtree")]),
+              n("el-header", [e._v("Xiaoxia")]),
               n(
                 "el-main",
                 [
@@ -162,7 +162,7 @@
                           "div",
                           { staticClass: "grid-content" },
                           [
-                            n("el-divider", [n("h1", [e._v("DYtree todolist")])]),
+                            n("el-divider", [n("h1", [e._v("Xiaoxia todolist")])]),
                             n("TodoList")
                           ],
                           1
@@ -174,7 +174,7 @@
                 ],
                 1
               ),
-              n("el-footer", [e._v(" © 2023  DYtree")])
+              n("el-footer", [e._v(" © 2023  Xiaoxia")])
             ],
             1
           );
