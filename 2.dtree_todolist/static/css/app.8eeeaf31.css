@@ -7,18 +7,20 @@
 }
 
 .el-footer,.el-header {
-	background-color: #409eff;
+	background-color: #000000;
 	color: #fff;
 	text-align: center;
 	line-height: 60px
 }
 
 .el-footer {
-	background-color: #909399;
+	background-color: #fff;
 	display: block;
 	width: 100%;
 	position: fixed;
-	bottom: 0
+	bottom: 0;
+	font-size: unset;
+	color: #cf222e;
 }
 
 body {
