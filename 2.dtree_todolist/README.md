@@ -1,4 +1,4 @@
-# [bubble清单](https://mp.weixin.qq.com/s/ZAN-zlB6vG1dj2UJcaezOA)
+# [bubble清单](https://github.com/mao888/GoWeb_ToDoList/tree/main/bubble)
 
 一个基于gin+gorm开发的练手小项目，通过该项目可初识go web开发该有的姿势。
 
